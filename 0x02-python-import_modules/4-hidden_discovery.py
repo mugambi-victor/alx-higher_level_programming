@@ -5,5 +5,5 @@ if __name__ == "__main__":
 
     words = dir(hidden_4)
     for word in words:
-        if words[:2] != "__":
+        if word[:2] != "__":
             print(word)
