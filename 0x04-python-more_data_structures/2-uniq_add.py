@@ -6,5 +6,4 @@ def uniq_add(my_list=[]):
         unique_numbers.add(num)
 
     result = sum(unique_numbers)
-
     return result
