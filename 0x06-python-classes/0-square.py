@@ -9,4 +9,3 @@ class Square:
     Methods:
     No methods at the moment.
     """
-    pass
