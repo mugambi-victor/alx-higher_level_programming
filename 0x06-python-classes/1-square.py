@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 class Square:
     """
     This class represents a square.
@@ -12,6 +11,6 @@ class Square:
         Initializes a new instance of the Square class.
 
         Args:
-            size: The size of the square.
+            size (int): The size of the square.
         """
         self.__size = size
