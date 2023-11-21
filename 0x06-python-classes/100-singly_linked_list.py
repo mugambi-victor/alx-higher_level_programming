@@ -9,7 +9,8 @@ class Node:
 
     Attributes:
         __data (int): Private attribute representing the data of the node.
-        __next_node (Node): Private attribute representing the next node in the linked list.
+        __next_node (Node): Private attribute representing
+        the next node in the linked list.
     """
 
     def __init__(self, data, next_node=None):
@@ -18,7 +19,8 @@ class Node:
 
         Args:
             data: The data to be stored in the node.
-            next_node (Node): The next node in the linked list. Defaults to None.
+            next_node (Node): The next node in the linked
+            list. Defaults to None.
         """
         self.data = data
         self.next_node = next_node
@@ -90,7 +92,8 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         """
-        Inserts a new Node into the correct sorted position in the list (increasing order).
+        Inserts a new Node into the correct sorted
+        position in the list (increasing order).
 
         Args:
             value: The data to be stored in the new node.
