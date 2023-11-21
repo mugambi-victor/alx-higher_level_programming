@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 1-square.py
+# 2-square.py
 """Define a class Square."""
 
 
@@ -11,11 +11,17 @@ class Square:
         __size (int): Private attribute representing the size of the square.
     """
 
-    def __init__(self, size):
+    def __init__(self, size=0):
         """
         Initializes a new instance of the Square class.
 
         Args:
-            size (int): The size of the square.
+            size (int): The size of the square. Defaults to 0.
         """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+
+        if size < 0:
+            raise ValueError("size must be >= 0")
+
         self.__size = size
