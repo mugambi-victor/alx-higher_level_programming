@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-Class Square:
+class Square:
     """
     This is a simple class representing a square.
 
