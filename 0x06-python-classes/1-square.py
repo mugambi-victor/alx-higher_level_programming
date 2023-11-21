@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-#1-square.py
-
+# 1-square.py
+"""Define a class Square."""
 class Square:
     """
     This class represents a square.
