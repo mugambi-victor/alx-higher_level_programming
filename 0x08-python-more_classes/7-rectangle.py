@@ -127,11 +127,7 @@ class Rectangle:
         """
         if self.__width == 0 or self.__height == 0:
             return ""
-        return (
-                "\n".join([str(self.print_symbol) * self.__width] * self.__height)
-                if self.__width != 0 and self.__height != 0
-                else ""
-                )
+        return "\n".join([str(self.print_symbol) * self.__width for _ in range(self.__height)])
 
     def __repr__(self):
         """
