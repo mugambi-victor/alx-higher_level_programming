@@ -1,0 +1,42 @@
+# test_say_my_name.txt
+
+# The ``3-say_my_name`` module
+=========================
+
+# Using ``say_my_name``
+--------------------
+
+# Importing the function from the module:
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+# Checking for module docstring:
+>>> module_docstring = __import__("3-say_my_name").__doc__
+>>> module_docstring is not None
+True
+
+# Checking for function docstring:
+>>> function_docstring = say_my_name.__doc__
+>>> len(function_docstring) > 1
+True
+
+# Test Case 1: Print full name with both first and last names
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+# Test Case 2: Print only the first name
+>>> say_my_name("Walter")
+My name is Walter
+
+# Test Case 3: Raise TypeError for non-string first name
+>>> try:
+...     say_my_name(12, "White")
+... except TypeError as e:
+...     str(e)
+'first_name must be a string or last_name must be a string'
+
+# Test Case 4: Raise TypeError for non-string last name
+>>> try:
+...     say_my_name("Bob", 42)
+... except TypeError as e:
+...     str(e)
+'first_name must be a string or last_name must be a string'

@@ -1,0 +1,93 @@
+# test_print_square.txt
+
+# The ``4-print_square`` module
+=========================
+
+# Using ``print_square``
+--------------------
+
+# Importing the function from the module:
+>>> print_square = __import__("4-print_square").print_square
+
+# Checking for module docstring:
+>>> module_docstring = __import__("4-print_square").__doc__
+>>> module_docstring is not None
+True
+
+# Checking for function docstring:
+>>> function_docstring = print_square.__doc__
+>>> len(function_docstring) > 1
+True
+
+# Test Case 1: Print square with size 4
+>>> print_square(4)
+####
+####
+####
+####
+
+# Test Case 2: Print square with size 10
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+# Test Case 3: Print empty square with size 0
+>>> print_square(0)
+...
+
+# Test Case 4: Print square with size 1
+>>> print_square(1)
+#
+
+# Test Case 5: Raise ValueError for negative size
+>>> try:
+...     print_square(-1)
+... except Exception as e:
+...     str(e)
+'size must be >= 0'
+
+# Test Case 6: Print square with size 5
+>>> print_square(5)
+#####
+#####
+#####
+#####
+#####
+
+# Test Case 7: Print square with size 2
+>>> print_square(2)
+##
+##
+
+# Test Case 8: Print square with size 7
+>>> print_square(7)
+#######
+#######
+#######
+#######
+#######
+#######
+#######
+
+# Test Case 9: Print square with size 3
+>>> print_square(3)
+###
+###
+###
+
+# Test Case 10: Print square with size 6
+>>> print_square(6)
+######
+######
+######
+######
+######
+######

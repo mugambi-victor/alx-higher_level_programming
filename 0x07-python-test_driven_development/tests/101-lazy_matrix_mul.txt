@@ -1,0 +1,18 @@
+# 101-lazy_matrix_mul.txt
+
+# Importing the function from the module:
+>>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
+# Test case 1
+>>> import numpy as np
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+array([[ 7, 10],
+       [15, 22]])
+
+# Test case 2
+>>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+array([[13, 16]])
+
+# Additional test case with invalid matrices
+>>> lazy_matrix_mul([[]], [[5, 6], [7, 8]])
+    Traceback (most recent call last):
+    ValueError: shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)

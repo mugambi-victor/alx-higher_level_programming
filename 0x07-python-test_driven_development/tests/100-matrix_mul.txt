@@ -1,0 +1,42 @@
+# tests/100-matrix_mul.txt
+
+# The ``100-matrix_mul`` module
+==============================
+
+# Using ``matrix_mul``
+-------------------
+
+# Importing the function from the module:
+>>> matrix_mul = __import__("100-matrix_mul").matrix_mul
+
+# Test Case 1: Basic test
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+
+# Test Case 2: Different matrix dimensions
+>>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+[[13, 16]]
+
+# Test Case 3: Invalid matrices - incompatible for multiplication
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2, 3], [4, 5, 6]])
+Traceback (most recent call last):
+  ...
+ValueError: m_a and m_b can't be multiplied
+
+# Test Case 4: Invalid matrices - non-numeric elements
+>>> matrix_mul([[1, 2], [3, 'a']], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+  ...
+TypeError: m_a should contain only integers or floats
+
+# Test Case 5: Invalid matrices - inconsistent row sizes
+>>> matrix_mul([[1, 2], [3, 4, 5]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+  ...
+TypeError: each row of m_a must be of the same size
+
+# Test Case 6: Invalid matrices - empty
+>>> matrix_mul([], [])
+Traceback (most recent call last):
+  ...
+ValueError: m_a can't be empty or m_b can't be empty

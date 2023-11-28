@@ -1,0 +1,104 @@
+# 0-add_integer.txt
+
+# The ``0-add_integer`` module
+======================
+
+# Using ``add_integer``
+-------------------
+
+# Importing the function from the module:
+>>> add_integer = __import__("0-add_integer").add_integer
+
+# Checking for module docstring:
+>>> m = __import__("0-add_integer").__doc__
+>>> m is not None
+True
+
+# Checking for function docstring:
+>>> f = __import__("0-add_integer").add_integer.__doc__
+>>> len(f) > 1
+True
+
+# Test case 1: Adding two integers
+>>> add_integer(1, 2)
+3
+
+# Test case 2: Adding an integer and the default value of b (98)
+>>> add_integer(100)
+198
+
+# Test case 3: Adding a float and an integer (casting float to integer)
+>>> add_integer(10.5, 5)
+15
+
+# Test case 4: Adding two floats (casting both to integers)
+>>> add_integer(7.2, 3.8)
+11
+
+# Test case 5: Trying to add an integer and a string (should raise TypeError)
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer or float
+
+# Test case 6: Trying to add None (should raise TypeError)
+>>> add_integer(None)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer or float
+
+# Test case 7: Adding two large integers
+>>> add_integer(1000000000, 2000000000)
+3000000000
+
+# Test case 8: Adding a negative integer and a positive float (casting float to integer)
+>>> add_integer(-5, 3.7)
+-1
+
+# Test case 9: Adding two negative floats (casting both to integers)
+>>> add_integer(-2.5, -3.8)
+-6
+
+# Test case 10: Adding a large float and a small integer (casting float to integer)
+>>> add_integer(1000000.5, 5)
+1000005
+
+# Test case 11: Adding a large float and a small float (casting both to integers)
+>>> add_integer(9999999.9, 0.1)
+10000000
+
+# Test case 12: Adding a boolean and an integer (should raise TypeError)
+>>> add_integer(True, 42)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer or float
+
+# Test case 13: Adding a float and a boolean (should raise TypeError)
+>>> add_integer(3.14, False)
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer or float
+
+# Test case 14: Adding positive infinity and an integer (should raise OverflowError)
+>>> add_integer(float('inf'), 42)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+# Test case 15: Adding an integer and negative infinity (should raise OverflowError)
+>>> add_integer(99, float('-inf'))
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+# Test case 16: Adding positive infinity and negative infinity (should raise OverflowError)
+>>> add_integer(float('inf'), float('-inf'))
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+# Test case 17: Adding two positive infinities (should raise OverflowError)
+>>> add_integer(float('inf'), float('inf'))
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
