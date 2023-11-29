@@ -4,11 +4,13 @@
 
 class LockedClass:
     """
-    LockedClass: A class that restricts the creation of new instance attributes,
+    LockedClass: A class that restricts the
+    creation of new instance attributes,
     except for 'first_name'.
 
     Attributes:
-    - first_name (str): The first name attribute allowed for dynamic creation.
+    - first_name (str): The first name
+    attribute allowed for dynamic creation.
     """
 
     __slots__ = ('first_name',)
