@@ -1,0 +1,47 @@
+# 1-my_list.txt
+
+# The ``1-my_list`` module
+======================
+
+# Using ``print_sorted``
+-------------------
+>>> my_list_module = __import__("1-my_list")
+>>> MyList = my_list_module.MyList
+# Importing the function from the module:
+>>> print_sorted = MyList.print_sorted
+"""
+Doctests for MyList class.
+
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+The original list remains unchanged after printing.
+>>> my_list
+[1, 4, 2, 3, 5]
+
+Test with an empty list.
+>>> empty_list = MyList()
+>>> empty_list.print_sorted()
+[]
+
+Test with a list of strings.
+>>> str_list = MyList(['banana', 'apple', 'cherry', 'date'])
+>>> str_list.print_sorted()
+['apple', 'banana', 'cherry', 'date']
+
+Test with a list of mixed types (integers and strings).
+>>> mixed_list = MyList([3, 'apple', 1, 'banana', 2, 'cherry'])
+>>> mixed_list.print_sorted()
+[1, 2, 3, 'apple', 'banana', 'cherry']
+
+"""
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+
