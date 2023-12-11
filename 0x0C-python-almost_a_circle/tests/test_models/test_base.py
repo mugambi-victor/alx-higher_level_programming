@@ -1,3 +1,5 @@
+"""Defines unittests for base.py."""
+
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -13,9 +15,11 @@ class TestBase(unittest.TestCase):
     def test_constructor_with_id(self):
         b = Base(5)
         self.assertEqual(b.id, 5)
+
     def setUp(self):
         # Reset the global counter before each test
         Base._Base__nb_objects = 0
+
     def test_multiple_instances(self):
         b1 = Base()
         b2 = Base()
@@ -28,7 +32,6 @@ class TestBase(unittest.TestCase):
     def test_negative_id(self):
         b = Base(-5)
         self.assertEqual(b.id, -5)
-    
 
     def test_three_bases(self):
         b1 = Base()
@@ -42,7 +45,7 @@ class TestBase(unittest.TestCase):
     def test_to_json_string_empty_list(self):
         result = Base.to_json_string([])
         self.assertEqual(result, "[]")
-    
+
     def test_to_json_string_none(self):
         result = Base.to_json_string(None)
         self.assertEqual(result, "[]")
@@ -50,7 +53,10 @@ class TestBase(unittest.TestCase):
     def test_to_json_string_with_data(self):
         data = [{"key": "value"}, {"id": 1, "name": "example"}]
         result = Base.to_json_string(data)
-        self.assertEqual(result, '[{"key": "value"}, {"id": 1, "name": "example"}]')
+        self.assertEqual(
+                result,
+                '[{"key": "value"}, {"id": 1, "name": "example"}]'
+                )
 
     def test_to_json_string_mix_types(self):
         data = [{"key": "value"}, 42, "hello"]
@@ -58,10 +64,14 @@ class TestBase(unittest.TestCase):
         self.assertEqual(result, '[{"key": "value"}, 42, "hello"]')
 
     def test_to_json_string_nested_dicts(self):
-        data = [{"key": {"nested": "value"}}, {"id": 1, "name": {"nested": "example"}}]
+        data = [{"key": {"nested": "value"}},
+                {"id": 1, "name": {"nested": "example"}}]
         result = Base.to_json_string(data)
-        self.assertEqual(result, '[{"key": {"nested": "value"}}, {"id": 1, "name": {"nested": "example"}}]')
-
+        self.assertEqual(
+                result,
+                '[{"key": {"nested": "value"}},'
+                ' {"id": 1, "name": {"nested": "example"}}]'
+                )
 
     def test_create_rectangle(self):
         dummy_instance = Rectangle.create(width=10, height=5, x=2, y=3)
@@ -87,7 +97,8 @@ class TestBase(unittest.TestCase):
         self.assertEqual(instances, [])
 
     def test_load_from_file_with_data(self):
-        data = [{"id": 1, "width": 10, "height": 5, "x": 2, "y": 3}, {"id": 2, "width": 7, "height": 7, "x": 1, "y": 2}]
+        data = [{"id": 1, "width": 10, "height": 5, "x": 2, "y": 3},
+                {"id": 2, "width": 7, "height": 7, "x": 1, "y": 2}]
         with open("Rectangle.json", "w") as file:
             file.write(Base.to_json_string(data))
 
@@ -108,5 +119,7 @@ class TestBase(unittest.TestCase):
             self.assertEqual(lines[0].strip(), "id,width,height,x,y")
             self.assertEqual(lines[1].strip(), "1,10,7,2,8")
             self.assertEqual(lines[2].strip(), "2,2,4,0,0")
+
+
 if __name__ == '__main__':
     unittest.main()
