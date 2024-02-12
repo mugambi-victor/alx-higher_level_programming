@@ -1,1 +1,1 @@
-README file for alx-higher_level_programming
+Readme file for 0x12-javascript-warm_up project
