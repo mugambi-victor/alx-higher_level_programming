@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-# Script to list all states from the db hbtn_0e_0_usa
-# Usage ./0-select_states.py <mysql_username> <mysql_password> <database_name>
+"""
+Script to list all states from the db hbtn_0e_0_usa
+Usage ./0-select_states.py <mysql_username> <mysql_password> <database_name>
+"""
 
 import sys
 import MySQLdb
