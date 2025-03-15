@@ -12,7 +12,9 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     # connect to server
-    db = MySQLdb.connect(host="localhost", user=username, password=password, db=database, port=3306)
+    db = MySQLdb.connect(host="localhost", user=username,
+                         password=password,
+                         db=database, port=3306)
     cursor = db.cursor()
 
     # query to retrieve states ordered by id
@@ -20,7 +22,7 @@ if __name__ == "__main__":
     states = cursor.fetchall()
 
     # print
-    for state in  states:
+    for state in states:
         print(state)
 
     # close cursor and db connection
